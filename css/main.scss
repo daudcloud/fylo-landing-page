@@ -1,0 +1,509 @@
+$very-dark-blue: hsl(243, 87%, 12%);
+$desaturated-blue: hsl(238, 22%, 44%);
+$bright-blue: hsl(224, 93%, 58%);
+$moderate-cyan: hsl(170, 45%, 43%);
+$light-grayish-blue: hsl(240, 75%, 98%);
+$light-gray: hsl(0, 0%, 75%);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: $very-dark-blue;
+}
+
+h1 {
+  font-size: 2.3rem;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+h1,
+h2,
+nav {
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+.mobile-img {
+  display: none;
+}
+
+.btn {
+  background: $bright-blue;
+  font-family: "Raleway";
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 1em 4em;
+  border-radius: 0.15rem;
+  cursor: pointer;
+  transition: 0.1s;
+
+  &:hover,
+  &:active {
+    background: hsl(224, 93%, 70%);
+  }
+}
+
+header {
+  padding: 4em 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 3.5em;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  @media only screen and (max-width: 900px) {
+    nav {
+      gap: 1.4em;
+    }
+    a {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  header {
+    padding: 1.5em 0;
+    padding-bottom: 5em;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 0.84rem;
+  }
+  img.logo {
+    max-width: 25%;
+  }
+  .mobile-img {
+    display: block;
+    width: 100%;
+  }
+  .desktop-img {
+    display: none;
+  }
+}
+
+section {
+  .row {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .input-container {
+    position: relative;
+
+    span {
+      font-size: 0.8rem;
+      display: none;
+    }
+  }
+
+  .col {
+    flex-basis: 50%;
+  }
+
+  &.section-1 {
+    padding-bottom: 10em;
+    .form-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .row {
+      gap: 3rem;
+    }
+
+    .input-container {
+      width: 50%;
+
+      span {
+        position: absolute;
+        left: 0;
+        bottom: -1.5em;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 0.95em;
+      outline: none;
+      border: 1px solid $desaturated-blue;
+      border-radius: 0.15rem;
+      color: inherit;
+      font-size: 0.85rem;
+
+      &:invalid {
+        border-color: red;
+      }
+
+      &:invalid ~ span {
+        color: red;
+        display: block;
+      }
+    }
+
+    @media only screen and (max-width: 900px) {
+      .form-group {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0 1.1rem;
+      }
+
+      .input-container {
+        width: 100%;
+      }
+    }
+  }
+
+  &.section-2 {
+    transform: translateY(-6px);
+    background: $light-grayish-blue;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    h1 {
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 1rem;
+      max-width: 35rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: $moderate-cyan;
+      display: flex;
+      gap: 0.5em;
+      align-items: center;
+      width: max-content;
+      border-bottom: 1px solid $moderate-cyan;
+      padding-bottom: 0.3em;
+      transition: 0.1s;
+
+      &:hover,
+      &:active {
+        color: hsl(170, 45%, 70%);
+        border-bottom: 1px solid hsl(170, 45%, 70%);
+      }
+    }
+
+    .card {
+      margin-top: 3rem;
+      padding: 1.2em 2.2em;
+      border-radius: 0.3rem;
+      box-shadow: 0 0 1em 0.1em hsl(0, 0%, 85%);
+      max-width: 350px;
+
+      p {
+        font-size: 0.8rem;
+        line-height: 1.8;
+        margin-top: 0.5rem;
+      }
+
+      .profile-picture {
+        width: 2rem;
+        border-radius: 50%;
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+      }
+
+      .profile-info {
+        p {
+          margin: 0;
+          margin-left: 0.8rem;
+          font-size: 0.7em;
+
+          &:first-child {
+            font-weight: bold;
+          }
+          &:last-child {
+            font-size: 0.5em;
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 900px) {
+      h1 {
+        font-size: 1rem;
+        margin-top: 5rem;
+        margin-bottom: 1.4rem;
+      }
+      p {
+        font-size: 0.85rem;
+        text-align: left;
+        line-height: 1.5;
+      }
+      a {
+        font-size: 0.75rem;
+        text-align: center;
+        margin: auto;
+      }
+      .card {
+        margin: 3rem 1.5rem;
+        padding: 1.2em 1.5em;
+        text-align: left;
+
+        p {
+          font-size: 0.65rem;
+          margin-top: 0.3rem;
+          margin-bottom: 0.3rem;
+        }
+        .profile-picture {
+          width: 1.5rem;
+        }
+        .profile-info {
+          p {
+            margin-left: 0.5rem;
+            font-size: 0.6em;
+
+            &:first-child {
+              font-weight: bold;
+            }
+            &:last-child {
+              font-size: 0.5em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.section-3 {
+    color: white;
+    background: $desaturated-blue;
+    padding: 6em 0;
+    .row {
+      flex-direction: row;
+      gap: 15rem;
+    }
+    h2 {
+      font-size: 1.9rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .input-container {
+      span {
+        position: absolute;
+        left: 0;
+        bottom: -1.5em;
+      }
+    }
+
+    input {
+      padding: 1.3em;
+      outline: none;
+      border: 1px solid transparent;
+      border-radius: 0.15rem;
+      width: 100%;
+      box-shadow: 0 0.3em 0.5em 0 hsla(0, 0%, 15%, 0.3);
+
+      &:invalid {
+        border-color: red;
+      }
+
+      &:invalid ~ span {
+        display: block;
+      }
+    }
+
+    .btn {
+      align-self: flex-start;
+      padding: 1.3em 3em;
+      box-shadow: 0 0.3em 0.5em 0 hsla(0, 0%, 15%, 0.3);
+    }
+
+    @media only screen and (max-width: 900px) {
+      .row {
+        flex-direction: column;
+        gap: 0.3rem;
+        align-items: stretch;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+      input {
+        padding: 0.7em;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 0.15rem;
+        width: 100%;
+        box-shadow: 0 0.3em 0.5em 0 hsla(0, 0%, 15%, 0.3);
+      }
+
+      .form-group {
+        margin: 0 2rem;
+        font-size: 0.6em;
+      }
+
+      .btn {
+        align-self: stretch;
+        font-size: 1em;
+        padding: 1.3em;
+      }
+    }
+  }
+
+  &.section-4 {
+    background: $very-dark-blue;
+    color: white;
+    padding: 7em 0;
+    .logo-footer {
+      margin-bottom: 1rem;
+    }
+    p {
+      margin: 0;
+    }
+    li {
+      list-style: none;
+      cursor: pointer;
+      transition: 0.1s;
+
+      &:hover {
+        color: $desaturated-blue;
+      }
+    }
+    .row {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-right: 7rem;
+      align-items: flex-start;
+    }
+
+    .contacts > * + * {
+      margin-top: 1rem;
+    }
+
+    .contacts img {
+      margin-right: 1rem;
+    }
+
+    .col-1 > * + * {
+      margin-top: 1rem;
+    }
+
+    .social {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      & *:hover {
+        color: $desaturated-blue;
+      }
+
+      & > * + * {
+        margin-left: 1rem;
+      }
+    }
+
+    .social-item {
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      position: relative;
+      cursor: pointer;
+      transition: 0.1s;
+
+      &:hover {
+        border-color: $desaturated-blue;
+      }
+
+      & > * {
+        font-size: 0.9em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media only screen and (max-width: 900px) {
+      .row {
+        flex-direction: column;
+        margin-right: 0;
+      }
+
+      .contacts {
+        margin-top: 1.5rem;
+        p {
+          font-size: 1rem;
+        }
+      }
+      .col-1 {
+        margin-top: 3rem;
+      }
+      .social {
+        margin: auto;
+        margin-top: 4rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    .row {
+      flex-direction: column;
+    }
+
+    .col {
+      text-align: center;
+    }
+
+    &.section-4 {
+      padding: 4em 1em;
+    }
+    &.section-3 {
+      padding: 4em 1em;
+    }
+  }
+}
